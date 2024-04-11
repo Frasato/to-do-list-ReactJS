@@ -28,7 +28,7 @@ export default function App() {
   }
 
   function deleteTask(id){
-    const updateTask =  tasks.filter((task, index)=>{
+    const updateTask = tasks.filter((task, index)=>{
       return index !== id;
     });
     setTasks(updateTask);
