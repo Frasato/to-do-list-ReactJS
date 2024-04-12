@@ -41,14 +41,14 @@ export default function App() {
         <input type="text" placeholder="Task name..." value={name} onChange={handleNameTask}/>
         <textarea value={description} onChange={handleDescription}></textarea>
         <button onClick={createTask} className="create-button">Create</button>
-        <div className="container-task">
-        {tasks.map((itemTask, id)=>{
-          return(
-            <Task key={id} nameTask={itemTask.name} description={itemTask.desc} deleteTask={() => deleteTask(id)}/>
-          );
-        })}
-        </div>
       </div>
+      <div className="container-task">
+          {tasks.map((itemTask, id)=>{
+            return(
+              <Task key={id} nameTask={itemTask.name} description={itemTask.desc} deleteTask={() => deleteTask(id)}/>
+            );
+          })}
+        </div>
     </div>
   );
 }

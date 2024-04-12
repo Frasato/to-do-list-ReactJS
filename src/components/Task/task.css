@@ -1,0 +1,31 @@
+@import url('../../styles/var.css');
+
+div.body-task{
+    display: flex;
+    justify-content: center;
+}
+
+div.task{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8%;
+}
+
+div.task > div > h1{
+    font-size: 1.5em;
+    margin-bottom: 2px;
+}
+
+div.task > div > p{
+    color: rgb(150, 150, 150);
+    width: 250px;
+    height: 40px;
+    word-break: break-word;
+}
+
+.icon{
+    color: var(--primary-pink);
+    cursor: pointer;
+}
