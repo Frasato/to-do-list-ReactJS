@@ -1,2 +1,47 @@
 @import url('var.css');
 
+div.body{
+    background-color: #000000;
+    opacity: 1;
+    background-image:  radial-gradient(#EA0036 0.75px, transparent 0.75px), radial-gradient(#EA0036 0.75px, #000000 0.75px);
+    background-size: 30px 30px;
+    background-position: 0 0,15px 15px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.container-header{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    height: 250px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1.title{
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+textarea{
+    border: 1px solid var(--primary-pink);
+    height: 120px;
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+button.create-button{
+    background-color: var(--primary-pink);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
