@@ -18,13 +18,17 @@ export default function App() {
 
   function createTask(event){
     event.preventDefault();
-    const taskObj = [
-      {
-        name: name,
-        desc: description
-      }
-    ];
-    setTasks([ ...tasks, ...taskObj]);
+    if(name !== '' && description !== ''){
+      const taskObj = [
+        {
+          name: name,
+          desc: description
+        }
+      ];
+      setTasks([ ...tasks, ...taskObj]);
+    }else{
+      alert('Something is empyt...');
+    }
   }
 
   function deleteTask(id){
