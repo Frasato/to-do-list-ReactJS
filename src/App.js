@@ -23,11 +23,13 @@ export default function App() {
   }, []);
 
   function handleNameTask(event){
-    setName(event.target.value);
+    const nameTask = event.target.value;
+    setName(nameTask);
   }
 
   function handleDescription(event){
-    setDescription(event.target.value);
+    const descriptionTask = event.target.value;
+    setDescription(descriptionTask);
   }
 
   function createTask(event){
