@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import Task from "./components/Task/Task.js";
 import './styles/app.css';
 
@@ -22,15 +22,19 @@ export default function App() {
 
   }, []);
 
-  function handleNameTask(event){
+  const lengthTasks = useMemo(()=>{
+    return tasks.length;
+  }, [tasks]);
+
+  const handleNameTask = useCallback((event)=> {
     const nameTask = event.target.value;
     setName(nameTask);
-  }
+  }, []);
 
-  function handleDescription(event){
+  const handleDescription = useCallback((event)=> {
     const descriptionTask = event.target.value;
     setDescription(descriptionTask);
-  }
+  }, []);
 
   function createTask(event){
     event.preventDefault();
@@ -42,6 +46,8 @@ export default function App() {
         }
       ];
       setTasks([ ...tasks, ...taskObj]);
+      setDescription('');
+      setName('Name Task...');
     }else{
       alert('Something is empyt...');
     }
@@ -56,6 +62,9 @@ export default function App() {
 
   return (
     <div className="body">
+      {
+        lengthTasks > 1? <h1>Do you have {lengthTasks} tasks to do</h1> : <h1>Do you have {lengthTasks} task to do</h1>
+      }
       <div className="container-header">
         <h1 className="title">To Dev List</h1>
         <input type="text" placeholder="Task name..." value={name} onChange={handleNameTask}/>

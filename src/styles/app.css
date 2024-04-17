@@ -12,6 +12,10 @@ div.body{
     align-items: center;
     justify-content: center;
 }
+div.body > h1{
+    color: white; 
+    margin-bottom: 10px;
+}
 
 div.container-header{
     background-color: white;
