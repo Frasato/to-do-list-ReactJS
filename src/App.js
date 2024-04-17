@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Task from "./components/Task/Task.js";
 import './styles/app.css';
 
@@ -7,6 +7,20 @@ export default function App() {
   const [name, setName] = useState('Name Task...');
   const [description, setDescription] = useState('');
   const [tasks, setTasks] = useState([]);
+
+  useEffect(()=>{
+    localStorage.setItem('Tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(()=>{
+    const storageTask = localStorage.getItem('Tasks');
+    
+    if(storageTask){
+      const convertedTasks = JSON.parse(storageTask);
+      setTasks(convertedTasks);
+    }
+
+  }, []);
 
   function handleNameTask(event){
     setName(event.target.value);
@@ -49,7 +63,7 @@ export default function App() {
       <div className="container-task">
           {tasks.map((itemTask, id)=>{
             return(
-              <Task key={id} nameTask={itemTask.name} description={itemTask.desc} deleteTask={() => deleteTask(id)}/>
+              <Task key={id} nameTask={itemTask.name} description={itemTask.desc} deleteTask={() => {deleteTask(id)}}/>
             );
           })}
         </div>
